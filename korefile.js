@@ -7,19 +7,13 @@ project.addExclude('.git/**');
 project.addExclude('build/**');
 
 project.addFile('Sources/**');
-project.addFile('Libraries/PVRTexTool/Include/**');
+project.addFile('Library/Include/**');
 
 project.addDefine('LIB_PVRTC');
-project.addIncludeDir('Libraries/PVRTexTool/Include');
+project.addIncludeDir('Library/Include');
 if (platform === Platform.Windows) {
-	project.addLibFor('Win32', 'Libraries/PVRTexTool/Windows_x86_32/Static/PVRTexLib');
-	project.addLibFor('x64', 'Libraries/PVRTexTool/Windows_x86_64/Static/PVRTexLib');
-}
-else if (platform === Platform.OSX) {
-	project.addLib('Libraries/PVRTexTool/OSX_x86/Static/PVRTexLib.a');
-}
-else if (platform === Platform.Linux) {
-	project.addLib('Libraries/PVRTexTool/Linux_x86_32/Static/PVRTexLib');
+	project.addLibFor('Win32', 'Library/Windows_x86_32/PVRTexLib');
+	project.addLibFor('x64', 'Library/Windows_x86_64/PVRTexLib');
 }
 
 solution.addProject(project);
