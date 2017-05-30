@@ -21,10 +21,10 @@ namespace {
 }
 
 dynfunc char* format() {
-	return "pvrtc";
+	return "PVRTC";
 }
 
-dynfunc void encode(int width, int height, int stride, int format, unsigned char* pixels_, int* out_width, int* out_height, int* out_size, void** out_data) {
+dynfunc void encode(int width, int height, int stride, const char* format, unsigned char* pixels_, int* out_width, int* out_height, int* out_size, void** out_data) {
 	int w = getPower2(width);
 	int h = getPower2(height);
 	w = h = imax(w, h);
